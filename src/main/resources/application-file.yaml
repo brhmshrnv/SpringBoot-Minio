@@ -1,0 +1,14 @@
+minio:
+  url: http://127.0.0.1:9000
+  bucket: mybucket
+  access-key: test
+  secret-key: test1234
+
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+      enabled: true
+      file-size-threshold: 2KB

@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  db:
+    hostname: mysql
+    image: mysql:8.0.25
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: fileDb
+    ports:
+      - 3306:3306
+  minio:
+    hostname: minio
+    image: minio/minio
+    ports:
+    - 9000:9000
+    restart: always
+    environment:
+      MINIO_ROOT_USER: test
+      MINIO_ROOT_PASSWORD: test1234
+    command: server /data --console-address ":9001"
+volumes:
+  db_data:
+
+
